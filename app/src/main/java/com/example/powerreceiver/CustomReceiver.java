@@ -32,18 +32,11 @@ public class CustomReceiver extends BroadcastReceiver {
                     break;
                 case Intent.ACTION_HEADSET_PLUG:
                     int state = intent.getIntExtra("state",1);
-                    switch (state) {
-                        case 0:
+                    if(state == 0 )
                             toastMessage = "Headset Unplugged";
-                            break;
-                        case 1:
+                        if(state == 1)
                             toastMessage = "Headset Plugged In";
-                            break;
-                        default:
-                            toastMessage = "Headset Uncertain";
-                    }
                     break;
-                default: break;
             }
             Toast.makeText(context, toastMessage, Toast.LENGTH_SHORT).show();
         }
